@@ -1,2 +1,1 @@
-# Image-Uploader
-An Image uploader in React using API.
+# Working on an image uploader in React
