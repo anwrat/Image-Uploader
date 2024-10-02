@@ -28,5 +28,17 @@
 
 .displayimg{
     margin: auto;
-    width: 50%;
+    position:relative;
+    width: 11vw;/*Changing rectangular images to square*/
+    height:11vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.displayimg img{
+    margin:0 auto;
+    height:100%;
+    width:100%;
+    object-fit: cover; /*Maintain the ratio while cropping*/
+    display:inline;
 }
