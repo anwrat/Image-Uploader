@@ -1,4 +1,5 @@
 import ImageUpload from './components/uploader'
+import Img from './assets/uploadimg.jpg'
 import './App.css'
 
 function App() {
@@ -9,6 +10,9 @@ function App() {
       <div className='uploader'>
         <ImageUpload />
         <h1>Click to Upload</h1>
+      </div>
+      <div className='displayimg'>
+        <img src={Img} alt="Error in loading image"></img>
       </div>
     </>
   )
