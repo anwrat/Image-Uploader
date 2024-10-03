@@ -22,7 +22,7 @@
     height: 20%;
 }
 
-.uploader :hover{
+.uploader:hover{
     background-color: rgb(14, 96, 14);
 }
 

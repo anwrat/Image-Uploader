@@ -8,11 +8,11 @@ function App() {
     <>
       <h1 className="text-3xl font-bold text-600 mb-10">Image Uploader</h1>
       <div className='uploader'>
-        <ImageUpload />
+        <img src={Img} alt="Error in loading image"></img>
         <h1>Click to Upload</h1>
       </div>
       <div className='displayimg'>
-        <img src={Img} alt="Error in loading image"></img>
+        <ImageUpload />
       </div>
     </>
   )
