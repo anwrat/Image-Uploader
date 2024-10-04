@@ -1,10 +1,10 @@
 import { useState } from "react";
 import DefaultImg from '../assets/empty.jpg'
 const ImageUpload=()=>{
-    const [imageURL,setimageURL]=useState();
+    const [imageURL,setimageURL]=useState(DefaultImg);
     return(
         <>
-            <img src={DefaultImg} alt="Couldnot load image" ></img>
+            <img src={imageURL} alt="Main Image" ></img>
         </>
     )
 }
