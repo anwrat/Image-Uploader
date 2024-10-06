@@ -1,14 +1,21 @@
-import ImageUpload from './components/uploader'
+import DefaultImg from './assets/empty.jpg'
 import Img from './assets/uploadimg.jpg'
 import './App.css'
-import { useRef } from 'react'
+import { useState,useRef } from 'react'
 
 function App() {
   const fileUploadRef=useRef<HTMLInputElement>(null);
+  const [imageURL,setimageURL]=useState(DefaultImg);
 
   const handleImageUpload=(event: React.MouseEvent<HTMLButtonElement>)=>{
     event.preventDefault();
     fileUploadRef.current?.click();
+  }
+
+  const uploadImageDisplay=()=>{
+    const uploadedFile=fileUploadRef.current!.files![0];
+    const cachedURL=URL.createObjectURL(uploadedFile); //Create a URL for file
+    setimageURL(cachedURL);
   }
 
   return (
@@ -22,10 +29,11 @@ function App() {
         <input 
           type='file' 
           ref={fileUploadRef}
-          hidden/>
+          onChange={uploadImageDisplay}
+          hidden/> 
       </form>
       <div className='displayimg'>
-        <ImageUpload />
+        <img src={imageURL} alt="Main Image"></img>
       </div>
     </>
   )
