@@ -2,6 +2,7 @@ import DefaultImg from './assets/empty.jpg'
 import Img from './assets/uploadimg.jpg'
 import './App.css'
 import { useState,useRef } from 'react'
+import UploadingAnimation from './assets/uploading.gif'
 
 function App() {
   const fileUploadRef=useRef<HTMLInputElement>(null);
@@ -14,6 +15,7 @@ function App() {
 
   const uploadImageDisplay=async()=>{
     try{
+      setimageURL(UploadingAnimation);
       const uploadedFile=fileUploadRef.current!.files![0];
       const formdata=new FormData();
       formdata.append("file",uploadedFile);
