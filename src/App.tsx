@@ -12,10 +12,25 @@ function App() {
     fileUploadRef.current?.click();
   }
 
-  const uploadImageDisplay=()=>{
-    const uploadedFile=fileUploadRef.current!.files![0];
-    const cachedURL=URL.createObjectURL(uploadedFile); //Create a URL for file
-    setimageURL(cachedURL);
+  const uploadImageDisplay=async()=>{
+    try{
+      const uploadedFile=fileUploadRef.current!.files![0];
+      const formdata=new FormData();
+      formdata.append("file",uploadedFile);
+      const response=await fetch("https://api.escuelajs.co/api/v1/files/upload",{
+        method:"post",
+        body:formdata
+      })
+      if(response.status===201){
+        const data=await response.json();
+        setimageURL(data.location);
+      }
+      //const cachedURL=URL.createObjectURL(uploadedFile); //Create a URL for file
+      //setimageURL(cachedURL);
+    } catch(error){
+      console.error(error);
+      setimageURL(DefaultImg);
+    }
   }
 
   return (
